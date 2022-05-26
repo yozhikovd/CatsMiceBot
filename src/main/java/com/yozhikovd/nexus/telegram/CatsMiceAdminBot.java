@@ -19,12 +19,12 @@ import java.util.List;
 @Component
 public class CatsMiceAdminBot extends TelegramLongPollingBot {
 
-    @Autowired
-    OrderDao orderDao;
-
     @Lazy
     @Autowired
     CatsMiceUserBot catsMiceUserBot;
+
+    @Autowired
+    OrderDao orderDao;
 
     @Autowired
     AdminIdDao adminIdDao;

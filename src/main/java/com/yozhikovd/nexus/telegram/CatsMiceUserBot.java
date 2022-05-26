@@ -20,11 +20,14 @@ import java.util.Objects;
 public class CatsMiceUserBot extends TelegramLongPollingBot {
 
     @Autowired
+    CatsMiceAdminBot catsMiceAdminBot;
+
+
+    @Autowired
     ProductDao productDao;
     @Autowired
     OrderDao orderDao;
-    @Autowired
-    CatsMiceAdminBot catsMiceAdminBot;
+
     @Autowired
     AdminIdDao adminIdDao;
 
@@ -75,7 +78,7 @@ public class CatsMiceUserBot extends TelegramLongPollingBot {
                     var order = new Order(item.get().getProductName(), update.getMessage().getFrom().getUserName(), "NEW", chatId);
                     orderDao.save(order);
 
-                    catsMiceAdminBot.sendMessage("Вам поступил заказ", adminId);
+                    catsMiceAdminBot.sendMessage("Хуйлан ебашь на кухню тебе поступил заказ", adminId);
                     catsMiceAdminBot.sendMessage(order.toString(), adminId);
 
                 } else {
